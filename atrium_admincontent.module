@@ -1,0 +1,9 @@
+<?php
+
+include_once('atrium_admincontent.features.inc');
+
+function atrium_admincontent_atrium_admin_links_alter(&$links, $space) {
+  if (spaces_access_admin() && ($item = menu_get_item('admincontent')) && $item['access']) {
+    $links['admincontent'] = array('title' => t('Administer Content'), 'href' => $item['href']);
+  }
+}
